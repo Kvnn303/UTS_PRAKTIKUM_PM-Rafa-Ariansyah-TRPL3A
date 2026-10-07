@@ -1,9 +1,3 @@
-// ============================================================
-// FILE: lib/UTS_Praktikum/grouped_buttons.dart
-// DESKRIPSI: Custom widget untuk RadioButtonGroup dan CheckboxGroup
-//            yang kompatibel dengan Flutter terbaru.
-// ============================================================
-
 import 'package:flutter/material.dart';
 
 class RadioButtonGroup extends StatelessWidget {

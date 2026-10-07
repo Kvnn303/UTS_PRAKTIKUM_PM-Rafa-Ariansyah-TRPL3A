@@ -1,9 +1,3 @@
-// ============================================================
-// FILE: lib/UTS_Praktikum/app_theme.dart
-// DESKRIPSI: Identitas visual CargoFlow bergaya Ninja Xpress
-//            (merah + navy + latar pink lembut, tombol pil)
-// ============================================================
-
 import 'package:flutter/material.dart';
 
 class CF {

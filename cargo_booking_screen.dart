@@ -1,8 +1,3 @@
-// ============================================================
-// FILE: lib/UTS_Praktikum/cargo_booking_screen.dart
-// TEMA: CargoFlow Logistics - Formulir Booking Kargo (gaya Ninja Xpress)
-// ============================================================
-
 import 'package:flutter/material.dart';
 
 import 'app_theme.dart';

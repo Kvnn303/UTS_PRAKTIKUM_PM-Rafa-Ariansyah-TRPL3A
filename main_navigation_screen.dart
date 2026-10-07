@@ -1,8 +1,3 @@
-// ============================================================
-// FILE: lib/UTS_Praktikum/main_navigation_screen.dart
-// TEMA: CargoFlow Logistics - Dasbor Utama (gaya Ninja Xpress)
-// ============================================================
-
 import 'package:flutter/material.dart';
 
 import 'app_theme.dart';
