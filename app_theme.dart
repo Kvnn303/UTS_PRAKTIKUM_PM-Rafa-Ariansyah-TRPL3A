@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 class CF {
   CF._();
 
-  // Palet inti (mengacu ke hero Lincah x Ninja Xpress)
-  static const Color red = Color(0xFFC8102E); // merah Ninja
+  static const Color red = Color(0xFFC8102E);
   static const Color redDark = Color(0xFF9E0B24);
-  static const Color navy = Color(0xFF0F1B33); // judul tebal
-  static const Color bg = Color(0xFFFBF1F2); // pink sangat lembut
-  static const Color blush = Color(0xFFFDE4E7); // aksen chip/ikon
+  static const Color navy = Color(0xFF0F1B33);
+  static const Color bg = Color(0xFFFBF1F2);
+  static const Color blush = Color(0xFFFDE4E7);
   static const Color text = Color(0xFF1B2335);
   static const Color muted = Color(0xFF6B7280);
   static const Color line = Color(0xFFEBD9DC);
-  static const Color blue = Color(0xFF4C84F5); // aksen batang biru hero
+  static const Color blue = Color(0xFF4C84F5);
   static const Color green = Color(0xFF1E9E5A);
   static const Color amber = Color(0xFFE89B0C);
 
@@ -42,7 +41,6 @@ class CF {
     ),
   ];
 
-  /// Foto armada dari assets/images (nama file sesuai folder assets)
   static String fotoArmada(String nama) {
     switch (nama) {
       case 'Fuso':
@@ -102,7 +100,6 @@ class CfPhoto extends StatelessWidget {
   }
 }
 
-/// Badge pil putih berhuruf kapital merah (seperti di hero Lincah)
 class CfBadge extends StatelessWidget {
   final String label;
   const CfBadge(this.label, {super.key});
@@ -130,7 +127,7 @@ class CfBadge extends StatelessWidget {
   }
 }
 
-/// Logo aplikasi: memakai assets/images/Ninja.jpg, fallback ke wordmark teks
+/// Falls back to a text wordmark if the logo asset is unavailable.
 class CfLogo extends StatelessWidget {
   final double size;
   final Color color;
@@ -166,7 +163,6 @@ class CfLogo extends StatelessWidget {
   }
 }
 
-/// Satu set ikon konsisten (gaya rounded) dipusatkan di sini
 class CfIcons {
   CfIcons._();
 
@@ -217,7 +213,6 @@ class CfIcons {
   static const IconData success = Icons.task_alt_rounded;
 }
 
-/// Kartu seksi form: ikon di kotak pink, judul tebal navy
 class CfSection extends StatelessWidget {
   final String title;
   final IconData icon;

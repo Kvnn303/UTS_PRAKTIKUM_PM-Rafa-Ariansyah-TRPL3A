@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _prosesLogin() async {
     setState(() => _isLoading = true);
-    await Future.delayed(const Duration(milliseconds: 800)); // simulasi loading
+    await Future.delayed(const Duration(milliseconds: 800));
 
     final String idStaf = _idStafController.text.trim();
     final String password = _passwordController.text.trim();
@@ -25,7 +25,6 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!mounted) return;
     setState(() => _isLoading = false);
 
-    // Validasi data statis (dummy check)
     if (idStaf == 'petugas' && password == '1234') {
       Navigator.pushReplacement(
         context,
@@ -100,7 +99,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               const SizedBox(height: 14),
-              // Navbar mini: logo kiri
               const Align(
                 alignment: Alignment.centerLeft,
                 child: CfLogo(size: 24),
@@ -109,7 +107,6 @@ class _LoginScreenState extends State<LoginScreen> {
               const CfBadge('CEK ARMADA, ISI MANIFES, KARGO DIJEMPUT'),
               const SizedBox(height: 18),
 
-              // Judul besar navy seperti hero Lincah
               const Text(
                 'MANIFES KARGO\nONLINE',
                 textAlign: TextAlign.center,
@@ -122,7 +119,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 18),
 
-              // Foto armada dari assets
               Container(
                 height: 170,
                 width: double.infinity,
@@ -166,7 +162,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 20),
 
-              // Kartu form login
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(22),
@@ -206,7 +201,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 8),
                     TextField(
                       controller: _passwordController,
-                      obscureText: true, // kata sandi disamarkan
+                      obscureText: true,
                       style: const TextStyle(color: CF.text),
                       decoration: _dekorasi(
                         'Masukkan kata sandi',
@@ -246,7 +241,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 16),
 
-                    // Info demo
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
@@ -282,11 +276,10 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // Dekorasi input: ikon pendukung, hintText, focusedBorder melengkung
   InputDecoration _dekorasi(String hint, IconData icon) {
     return InputDecoration(
-      prefixIcon: Icon(icon, color: CF.red), // ikon pendukung
-      hintText: hint, // petunjuk pengisian
+      prefixIcon: Icon(icon, color: CF.red),
+      hintText: hint,
       hintStyle: TextStyle(color: CF.muted.withValues(alpha: 0.7)),
       filled: true,
       fillColor: CF.bg,
@@ -299,7 +292,6 @@ class _LoginScreenState extends State<LoginScreen> {
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(color: CF.line),
       ),
-      // garis batas melengkung saat aktif
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(color: CF.red, width: 2),

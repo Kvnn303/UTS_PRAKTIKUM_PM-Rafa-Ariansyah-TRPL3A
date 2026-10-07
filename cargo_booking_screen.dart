@@ -4,7 +4,7 @@ import 'app_theme.dart';
 import 'grouped_buttons.dart';
 
 class CargoBookingScreen extends StatefulWidget {
-  final String namaArmada; // data yang dikirim dari layar utama
+  final String namaArmada;
 
   const CargoBookingScreen({super.key, required this.namaArmada});
 
@@ -117,7 +117,6 @@ class _CargoBookingScreenState extends State<CargoBookingScreen> {
 
   String _formatTanggal(DateTime d) => '${d.day}/${d.month}/${d.year}';
 
-  // ── Bottom Sheet rincian biaya ─────────────────────────────
   void _tampilkanRincianBiaya() {
     if (_tanggalPengambilan == null || _jamKeberangkatan == null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -284,7 +283,6 @@ class _CargoBookingScreenState extends State<CargoBookingScreen> {
     );
   }
 
-  // ── AlertDialog konfirmasi + kirim data balik ──────────────
   void _tampilkanDialogKonfirmasi(int totalBiaya) {
     final String noResi =
         'CFX-${DateTime.now().millisecondsSinceEpoch.toString().substring(7)}';
@@ -350,8 +348,7 @@ class _CargoBookingScreenState extends State<CargoBookingScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(dialogContext); // tutup dialog
-                // tutup form + kirim data status resi sukses ke layar utama
+                Navigator.pop(dialogContext);
                 Navigator.pop(
                   context,
                   'Surat jalan $noResi berhasil diterbitkan!',
@@ -396,7 +393,6 @@ class _CargoBookingScreenState extends State<CargoBookingScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Badge + banner foto armada terpilih (data dari layar utama)
             const Center(child: CfBadge('ARMADA TERPILIH')),
             const SizedBox(height: 14),
             Container(
@@ -445,7 +441,6 @@ class _CargoBookingScreenState extends State<CargoBookingScreen> {
             ),
             const SizedBox(height: 20),
 
-            // Kategori Muatan (RadioButtonGroup)
             CfSection(
               title: 'Kategori Muatan',
               icon: CfIcons.cargo,
@@ -460,7 +455,6 @@ class _CargoBookingScreenState extends State<CargoBookingScreen> {
               ),
             ),
 
-            // Proteksi Pengiriman (CheckboxGroup)
             CfSection(
               title: 'Proteksi Pengiriman',
               icon: CfIcons.protect,
@@ -475,7 +469,6 @@ class _CargoBookingScreenState extends State<CargoBookingScreen> {
               ),
             ),
 
-            // Jadwal Pengambilan (DatePicker + TimePicker)
             CfSection(
               title: 'Jadwal Pengambilan',
               icon: CfIcons.schedule,
@@ -509,7 +502,6 @@ class _CargoBookingScreenState extends State<CargoBookingScreen> {
               ),
             ),
 
-            // Pengaturan Muatan (Slider + Switch)
             CfSection(
               title: 'Pengaturan Muatan',
               icon: CfIcons.weight,
