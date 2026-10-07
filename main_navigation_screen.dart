@@ -14,10 +14,8 @@ class MainNavigationScreen extends StatefulWidget {
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _selectedIndex = 0;
 
-  // State untuk ExpansionPanelList (Hazmat)
   final List<bool> _isExpanded = [false, false, false];
 
-  // ── Data dummy armada ──────────────────────────────────────
   final List<Map<String, dynamic>> _daftarArmada = [
     {
       'nama': 'Colt Diesel',
@@ -42,7 +40,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     },
   ];
 
-  // ── Data dummy surat jalan ─────────────────────────────────
   final List<Map<String, dynamic>> _daftarResi = [
     {'resi': 'CFX-8371', 'armada': 'Colt Diesel', 'status': 'Dalam Perjalanan'},
     {'resi': 'CFX-9920', 'armada': 'Fuso', 'status': 'Terkirim'},
@@ -65,7 +62,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     setState(() => _selectedIndex = index);
   }
 
-  // ── Navigasi ke Form Booking (membawa data) & menerima hasil ──
   void _bukaFormBooking(String tipeArmada) async {
     final hasil = await Navigator.push(
       context,
@@ -119,7 +115,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         ],
       ),
 
-      // ── Menu Samping (Drawer) ────────────────────────────────
       drawer: Drawer(
         backgroundColor: Colors.white,
         child: Column(
@@ -218,7 +213,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
       body: halaman[_selectedIndex],
 
-      // ── Navigasi Bawah ───────────────────────────────────────
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
@@ -266,13 +260,12 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         selectedTileColor: CF.blush,
         onTap: () {
           setState(() => _selectedIndex = index);
-          Navigator.pop(context); // tutup drawer
+          Navigator.pop(context);
         },
       ),
     );
   }
 
-  // Judul halaman dengan ikon beraksen
   Widget _judulHalaman(IconData ikon, String judul, String sub) {
     return Row(
       children: [
@@ -305,9 +298,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     );
   }
 
-  // ===========================================================
-  // MENU 1: MANIFES MUATAN (Tab Navigation)
-  // ===========================================================
   Widget _halamanManifesMuatan() {
     return DefaultTabController(
       length: 2,
@@ -350,7 +340,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     );
   }
 
-  // Tab Armada Tersedia: ListView.builder + ListTile + Stack/Positioned
   Widget _tabArmadaTersedia() {
     return ListView.builder(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
@@ -373,7 +362,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  // Foto armada dari assets
                   ClipRRect(
                     borderRadius: BorderRadius.circular(18),
                     child: CfPhoto(
@@ -383,7 +371,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                       fallbackIcon: armada['ikon'],
                     ),
                   ),
-                  // Lencana kapasitas
                   Positioned(
                     bottom: -9,
                     left: -2,
@@ -453,7 +440,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     );
   }
 
-  // Tab Syarat Muatan Berbahaya: ExpansionPanelList
   Widget _tabSyaratMuatan() {
     return SingleChildScrollView(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
@@ -563,9 +549,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     );
   }
 
-  // ===========================================================
-  // MENU 2: REKAP RESI (DataTable)
-  // ===========================================================
   Widget _halamanRekapResi() {
     final int total = _daftarResi.length;
     final int terkirim = _daftarResi
@@ -703,14 +686,10 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     );
   }
 
-  // ===========================================================
-  // MENU 3: INFORMASI DEPO (SelectableText)
-  // ===========================================================
   Widget _halamanInfoDepo() {
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        // Kartu hero depo: foto + overlay merah
         ClipRRect(
           borderRadius: BorderRadius.circular(24),
           child: SizedBox(
